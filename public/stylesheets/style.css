@@ -1,0 +1,34 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+.tippelappQuestionBox {
+  border: 1px solid lightgray;
+  margin: 50px 0px;
+  padding: 10px; }
+
+.fullWidth {
+  display: block;
+  width: 100%; }
+
+.card {
+  height: 200px;
+  width: 150px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: black; }
+
+.yellow-card {
+  background: #eaff04; }
+
+.red-card {
+  background: #e90052; }
+
+/*# sourceMappingURL=style.css.map */

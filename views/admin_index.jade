@@ -1,0 +1,20 @@
+extends layout
+
+	
+block content
+	.container
+		h1 #{title}
+		ul
+			li: a(href="/admins") Opprett tippelappen
+			li: a(href="/admins/answers") Se svar
+
+
+		form.form.tippelappForm
+			legend Opprett tippelappen her
+			label Antall spørsmål
+			input(type="number", min="1", value="4").form-control#numberOfQuestions
+			
+			.inputFieldContainer
+
+			.form-group
+				btn.btn.btn-success.form-control#saveTippelappen Lagre

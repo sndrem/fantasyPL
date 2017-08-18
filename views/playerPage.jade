@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	.container
+		h1= title
+
+		
+		.col-xs-12.col-sm-8.col-md-6
+			img(src='https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/110x140/p' + playerStats.photo.replace('jpg', 'png') + '' , alt="#{playerStats.web_name}")
+			h3 Pris £ #{playerStats.now_cost} millioner
+			h3 Poeng totalt: #{playerStats.total_points} p.
+			h3 Valgt av: #{playerStats.selected_by_percent} %
+
+		.col-xs-12.col-sm-8.col-md-6
+			table.table.table-striped
+				thead
+					tr
+						th Mål scoret
+						th Assists
+						th Selvmål
+						th Påvirkning
+						th Kreativitet
+						
+				tbody
+					tr
+						th #{playerStats.goals_scored}
+						th #{playerStats.assists}
+						th #{playerStats.own_goals}
+						
+						th #{parseFloat(playerStats.influence)}
+						th #{parseFloat(playerStats.creativity)}
+
+			.col-md-6
+				.card.yellow-card
+					span #{playerStats.yellow_cards}
+				
+			.col-md-6
+				.card.red-card
+					span #{playerStats.red_cards}
+				

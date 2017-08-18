@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	.container
+		h1= title
+		p Welcome to #{title}
+		
+		.col-xs-12.col-sm-8.col-md-6
+			ul
+				for player in allPlayers
+					a(href=`/players/${player.id}`): li= `${player.first_name} ${player.second_name || ''}`

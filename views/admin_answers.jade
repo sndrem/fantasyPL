@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	.container
+		h1 #{title}
+
+		ul
+			li: a(href="/admins") Opprett tippelappen
+			li: a(href="/admins/answers") Se svar
+
+		h3 Fasit
+		.correctAnswerContainer
+
+		button.btn.btn-primary.filterButton Filtrer
+
+		hr
+
+		ul.answerList
