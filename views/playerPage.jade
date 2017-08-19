@@ -7,7 +7,7 @@ block content
 		
 		.col-xs-12.col-sm-8.col-md-6
 			img(src='https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/110x140/p' + playerStats.photo.replace('jpg', 'png') + '' , alt="#{playerStats.web_name}")
-			h3 Pris £ #{playerStats.now_cost} millioner
+			h3 Pris £ #{playerStats.now_cost / 10} millioner
 			h3 Poeng totalt: #{playerStats.total_points} p.
 			h3 Valgt av: #{playerStats.selected_by_percent} %
 
