@@ -7,5 +7,8 @@ block content
 		
 		.col-xs-12.col-sm-8.col-md-6
 			ul
-				for player in allPlayers
-					a(href=`/players/${player.id}`): li= `${player.first_name} ${player.second_name || ''}`
+				for team in teamList
+					h4= team.teamName
+
+					for player in team.players
+						a(href=`/players/${player.player.id}`): li= `${player.player.first_name} ${player.player.second_name || ''}`

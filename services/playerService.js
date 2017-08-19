@@ -9,7 +9,8 @@ let playerService = {
 					second_name: player.second_name,
 					web_name: player.web_name,
 					id: player.id,
-					team_code: player.team_code
+					team_code: player.team_code,
+					team: player.team
 				}
 			});
 			next();
@@ -19,15 +20,17 @@ let playerService = {
 	getPlayerStats: function(req, res, next) {
 		const playerId = parseInt(req.params.id);
 		fplapi.findPlayer(playerId).then(data => {
-			console.log(data.now_cost);
 			req.playerStats = data;
 			next();
 		})
 	},
 
 	getAllTeams: function(req, res, next) {
-		// fplapi.findTeams().then(data => console.log(data));
-		next();
+		fplapi.findTeams().then(data => {
+			req.allTeams = data;
+			next();
+		});
+		
 	}
 }
 
