@@ -5,10 +5,11 @@ block content
 		h1= title
 		p Welcome to #{title}
 		
-		.col-xs-12.col-sm-8.col-md-6
+		.col-xs-12
 			ul
 				for team in teamList
-					h4= team.teamName
-
-					for player in team.players
-						a(href=`/players/${player.player.id}`): li= `${player.player.first_name} ${player.player.second_name || ''}`
+					.col-xs-12.col-sm-4
+						h4  #{team.teamName}
+					
+						for player in team.players
+							a(href=`/players/${player.player.id}`): li= `${player.player.first_name} ${player.player.second_name || ''}`

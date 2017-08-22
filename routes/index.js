@@ -33,6 +33,17 @@ router.get('/', playerService.getAllPlayers, playerService.getAllTeams, function
   	});
 });
 
+router.get('/stats', playerService.getAllPlayers, function(req, res, next) {
+	// res.json(req.allPlayers);
+	req.allPlayers = req.allPlayers.sort((a,b) => {
+		return b.total_points - a.total_points;
+	})
+	res.render('favourites', {
+		title: 'Stats',
+		allPlayers: req.allPlayers
+	})
+});
+
 router.get('/players/:id', playerService.getPlayerStats, function(req, res, next) {
 	res.render('playerPage', {
 		title: req.playerStats.first_name + " " + req.playerStats.second_name,

@@ -3,16 +3,7 @@ const fplapi = require('fpl-api-node');
 let playerService = {
 	getAllPlayers: function(req, res, next) {
 		fplapi.findPlayers().then(data => {
-			req.allPlayers = data.map(player => {
-				return {
-					first_name: player.first_name,
-					second_name: player.second_name,
-					web_name: player.web_name,
-					id: player.id,
-					team_code: player.team_code,
-					team: player.team
-				}
-			});
+			req.allPlayers = data;
 			next();
 		})
 	},

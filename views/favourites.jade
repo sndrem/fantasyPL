@@ -1,0 +1,31 @@
+extends layout
+
+block content
+	.container
+		h1= title
+
+		table.table.table-default.tablesorter#statsTable
+			thead
+				tr
+					th Navn
+					th Poeng
+					th Mål scoret
+					th Assists
+					th Gule kort
+					th Røde kort
+					th Minutter spilt
+					th På Dream team
+			
+			for player in allPlayers
+				tr
+					td: a(href="/players/#{player.id}") #{player.first_name} #{player.second_name}
+					td #{player.total_points}
+					td #{player.goals_scored}
+					td #{player.assists}
+					td #{player.yellow_cards}
+					td #{player.red_cards}
+					td #{player.minutes}
+					if player.in_dreamteam
+						td.success På Dream team
+					else
+						td -
