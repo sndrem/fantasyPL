@@ -34,7 +34,6 @@ router.get('/', playerService.getAllPlayers, playerService.getAllTeams, function
 });
 
 router.get('/stats', playerService.getAllPlayers, function(req, res, next) {
-	// res.json(req.allPlayers);
 	req.allPlayers = req.allPlayers.sort((a,b) => {
 		return b.total_points - a.total_points;
 	})
@@ -49,6 +48,31 @@ router.get('/players/:id', playerService.getPlayerStats, function(req, res, next
 		title: req.playerStats.first_name + " " + req.playerStats.second_name,
 		playerStats: req.playerStats
 	});
+});
+
+router.get("/gameweeks", playerService.getAllGameWeeks, function(req, res, next) {
+  res.render('gameWeeksPage', {
+      title: 'Game weeks',
+      gameWeeks: req.gameWeeks.filter(g => g.finished),
+      lastWeek: req.gameWeeks.filter(g => g.is_current)[0]
+  });
+
+router.get("/gameweeks/week/:weekId", playerService.getGameWeek, function(req, res, next) {
+  res.render('individualGameWeekPage', {
+    title: req.gameWeek.name
+  });
+});
+
+router.get("/gameweeks/weeksPlayed", playerService.getAllGameWeeks, function(req, res, next) {
+    const gameWeeksForResponse = req.gameWeeks.filter(g => g.finished);
+    if(gameWeeksForResponse.length <= 10) {
+      res.json(gameWeeksForResponse);
+    } else {
+      gameWeeksForResponse = gameWeeksForResponse.slice(gameWeeksForResponse.length - 10, gameWeeksForResponse);
+      res.json(gameWeeksForResponse);
+    }
+    
+  });
 });
 
 module.exports = router;

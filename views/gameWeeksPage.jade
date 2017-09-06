@@ -1,0 +1,24 @@
+extends layout
+block extra
+	script(type="text/javascript", src="javascripts/gameWeekChart.js")
+
+block content
+	.container
+		h1 Game Week Stats
+
+		.col-xs-12.col-md-8
+			h3 Forrige runde - #{lastWeek.name}
+
+			h4 Høyeste score: #{lastWeek.highest_score} poeng
+
+			h4 Gjennomsnittsscore: #{lastWeek.average_entry_score} poeng
+		.col-md-4
+			ul
+				for week in gameWeeks
+					li: a(href="/gameweeks/week/#{week.id}") Runde #{week.id}
+
+		.row
+			.col-xs-12.col-md-8
+				.chart#gameWeekChart
+
+				.chart#gameWeekTopPointsChart

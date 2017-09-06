@@ -7,16 +7,19 @@ html
     script(type="text/javascript", src="/javascripts/tablesorter_min.js")
     script(type="text/javascript", src="/javascripts/functions.js")
     script(type="text/javascript", src="/javascripts/users.js")
+    script(type="text/javascript", src="https://gstatic.com/charts/loader.js")
     link(rel='stylesheet', href="/stylesheets/bootstrap/dist/css/bootstrap-theme.min.css")
     link(rel='stylesheet', href="/stylesheets/bootstrap/dist/css/bootstrap.min.css")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="stylesheet", href="/stylesheets/themes_tablesorter/blue/style.css")
+    block extra
   body
     block navigation
     nav
         ul
             li: a(href="/") Hjem
             li: a(href="/stats") Stats
+            li: a(href="/gameweeks") Game Weeks
    
     block content
     

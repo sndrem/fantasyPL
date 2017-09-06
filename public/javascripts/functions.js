@@ -17,7 +17,6 @@ $(function() {
 
 	const teamListNavigationNames = Array.from(document.querySelectorAll(".team-navigation-list li a"));
 	teamListNavigationNames.forEach(team => team.addEventListener('click', highlightTeam))
-	
 
 });
 
