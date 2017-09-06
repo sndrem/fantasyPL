@@ -1,15 +1,25 @@
 extends layout
 
+
+
 block content
 	.container
 		h1= title
 		p Welcome to #{title}
 		
-		.col-xs-12
-			ul
+		.col-xs-12.col-md-4
+			ul.team-navigation-list
 				for team in teamList
-					.col-xs-12.col-sm-4
-						h4  #{team.teamName}
-					
+					li: a(href="\##{team.teamName.replace(' ', '_')}") #{team.teamName}
+
+
+		.col-xs-12.col-md-8
+			for team in teamList
+				.col-xs-12.col-sm-4.team-list
+					h4(id="#{team.teamName.replace(' ', '_')}")  #{team.teamName}
+					ul
 						for player in team.players
-							a(href=`/players/${player.player.id}`): li= `${player.player.first_name} ${player.player.second_name || ''}`
+							li: a(href="/players/#{player.player.id})") #{player.player.first_name} #{player.player.second_name || ''}
+
+		
+

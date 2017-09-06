@@ -5,6 +5,9 @@ body {
 a {
   color: #00B7FF; }
 
+ul {
+  padding: 0; }
+
 nav ul li {
   display: inline-block;
   margin-right: 10px; }
@@ -34,5 +37,17 @@ nav ul li {
 
 .red-card {
   background: #e90052; }
+
+.team-list {
+  min-height: 600px; }
+
+.team-navigation-list {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.highlight {
+  color: red;
+  text-decoration: underline; }
 
 /*# sourceMappingURL=style.css.map */

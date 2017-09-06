@@ -2,7 +2,7 @@ const fplapi = require('fpl-api-node');
 
 let playerService = {
 	getAllPlayers: function(req, res, next) {
-		fplapi.findPlayers().then(data => {
+		fplapi.getAllPlayers().then(data => {
 			req.allPlayers = data;
 			next();
 		})
@@ -17,7 +17,7 @@ let playerService = {
 	},
 
 	getAllTeams: function(req, res, next) {
-		fplapi.findTeams().then(data => {
+		fplapi.getAllTeams().then(data => {
 			req.allTeams = data;
 			next();
 		});
