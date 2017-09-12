@@ -19,7 +19,7 @@ block content
 					h4(id="#{team.teamName.replace(' ', '_')}")  #{team.teamName}
 					ul
 						for player in team.players
-							li: a(href="/players/#{player.player.id})") #{player.player.first_name} #{player.player.second_name || ''}
+							li: a(href="/players/#{player.player.id}") #{player.player.first_name} #{player.player.second_name || ''}
 
 		
 

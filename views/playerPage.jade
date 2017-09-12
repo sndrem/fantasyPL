@@ -11,6 +11,7 @@ block content
 			h3 Poeng totalt: #{playerStats.total_points} p.
 			h3 Valgt av: #{playerStats.selected_by_percent} %
 
+
 		.col-xs-12.col-sm-8.col-md-6
 			table.table.table-striped
 				thead
@@ -37,4 +38,25 @@ block content
 			.col-md-6
 				.card.red-card
 					span #{playerStats.red_cards}
-				
+
+		.row
+			.col-xs-12
+				.team-mates
+					h4 Resten av laget
+					table.table.table-hover
+						thead
+							tr
+								th
+								th Navn
+								th Pris
+								th Poeng totalt
+						tbody
+							for mate in teamMates
+								tr
+									td
+										a(href="/players/#{mate.id}")
+											img(src='https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/110x140/p' + mate.photo.replace('jpg', 'png') + '' , alt="#{mate.web_name}")
+									td: a(href="/players/#{mate.id}") #{mate.first_name} #{mate.second_name}
+									td £ #{mate.now_cost / 10} millioner
+									td #{mate.total_points} p.
+					

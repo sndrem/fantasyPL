@@ -43,10 +43,12 @@ router.get('/stats', playerService.getAllPlayers, function(req, res, next) {
 	})
 });
 
-router.get('/players/:id', playerService.getPlayerStats, function(req, res, next) {
-	res.render('playerPage', {
+router.get('/players/:id', playerService.getPlayerStats, playerService.getAllPlayers, function(req, res, next) {
+  const teamMates = req.allPlayers.filter(t => t.team === req.playerStats.team);
+  res.render('playerPage', {
 		title: req.playerStats.first_name + " " + req.playerStats.second_name,
-		playerStats: req.playerStats
+		playerStats: req.playerStats,
+    teamMates
 	});
 });
 
