@@ -25,6 +25,7 @@ let playerService = {
 
 	getAllGameWeeks: function(req, res, next) {
 		fplapi.getEvents().then(data => {
+			console.log(data);
 			req.gameWeeks = data;
 			next();
 		})

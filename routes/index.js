@@ -66,14 +66,8 @@ router.get("/gameweeks/week/:weekId", playerService.getGameWeek, function(req, r
 });
 
 router.get("/gameweeks/weeksPlayed", playerService.getAllGameWeeks, function(req, res, next) {
-    const gameWeeksForResponse = req.gameWeeks.filter(g => g.finished);
-    if(gameWeeksForResponse.length <= 10) {
-      res.json(gameWeeksForResponse);
-    } else {
-      gameWeeksForResponse = gameWeeksForResponse.slice(gameWeeksForResponse.length - 10, gameWeeksForResponse);
-      res.json(gameWeeksForResponse);
-    }
-    
+    let gameWeeksForResponse = req.gameWeeks.filter(g => g.finished);
+    res.json(gameWeeksForResponse);    
   });
 });
 
